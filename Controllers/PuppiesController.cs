@@ -78,6 +78,7 @@ namespace puppiesApiDotNet.Controllers
         [HttpPost]
         public async Task<ActionResult<Puppy>> PostPuppy(Puppy puppy)
         {
+            puppy.Id = Guid.NewGuid();
             _context.Puppy.Add(puppy);
             await _context.SaveChangesAsync();
 
